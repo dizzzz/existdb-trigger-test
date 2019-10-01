@@ -3,7 +3,7 @@
 
     <!-- enable RESTXQ support -->
     <triggers>
-        <trigger class="org.exist.extensions.exquery.restxq.impl.RestXqTrigger"/>
+
     </triggers>
 
     <!-- TODO add any index definitions that your application requires -->
