@@ -3,7 +3,6 @@
 <collection xmlns="http://exist-db.org/collection-config/1.0">
 
     <triggers>
-        <trigger class="org.exist.extensions.exquery.restxq.impl.RestXqTrigger"/>
         <trigger class="org.exist.repo.ExampleTrigger"/>
     </triggers>
 
