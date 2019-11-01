@@ -21,7 +21,9 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 public class ExampleTrigger extends SAXTrigger implements DocumentTrigger, CollectionTrigger {
-    
+
+    private final static Logger LOG = LogManager.getLogger(ExampleTrigger.class);
+
     @Override
     public void beforeCreateCollection(DBBroker broker, Txn txn, XmldbURI uri) throws TriggerException {
         LOG.debug("Not implemented");
@@ -99,8 +101,6 @@ public class ExampleTrigger extends SAXTrigger implements DocumentTrigger, Colle
                 collection.store(txn, broker, info, new InputSource(bais));
             }
 
-
-            txn.commit();
         } catch (Exception e) {
             LOG.error(e);
             throw new TriggerException(e);

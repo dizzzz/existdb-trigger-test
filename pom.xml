@@ -13,15 +13,15 @@
 
     <groupId>org.exist.repo</groupId>
     <artifactId>triggertest</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
-    <name>Example App</name>
-    <description>Example App for eXist-db</description>
-    <url>https://my-organisation.com/exist-db/app</url>
+    <name>Trigger Test</name>
+    <description>Trigger Test for eXist-db</description>
+    <url>https://github.com/dizzzz/existdb-trigger-test</url>
 
     <organization>
-        <name>My Organisation</name>
-        <url>http://my-organisation.com</url>
+        <name>Dannes Wessels</name>
+        <url>https://github.com/dizzzz</url>
     </organization>
 
     <licenses>
@@ -33,9 +33,9 @@
     </licenses>
 
     <scm>
-        <url>https://www.github.com/my-organisation/example-exist-app.git</url>
-        <connection>scm:git:https://www.github.com/my-organisation/example-exist-app.git</connection>
-        <developerConnection>scm:git:https://www.github.com/my-organisation/example-exist-app.git</developerConnection>
+        <url>https://github.com/dizzzz/existdb-trigger-test.git</url>
+        <connection>scm:git:https://github.com/dizzzz/existdb-trigger-test.git</connection>
+        <developerConnection>scm:git:https://github.com/dizzzz/existdb-trigger-test.git</developerConnection>
     </scm>
 
     <issueManagement>
@@ -62,7 +62,16 @@
             <groupId>org.exist-db</groupId>
             <artifactId>exist-core</artifactId>
             <version>${exist.version}</version>
+            <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.12.1</version>
+            <scope>provided</scope>
+        </dependency>
+
 <!--        <dependency>-->
 <!--            <groupId>org.exist-db</groupId>-->
 <!--            <artifactId>exist-optional</artifactId>-->
