@@ -96,7 +96,7 @@ public class ExampleTrigger extends SAXTrigger implements DocumentTrigger, Colle
             try (final InputStream bais = new ByteArrayInputStream(data);) {
                 final IndexInfo info = collection.validateXMLResource(txn, broker, newDocumentURI, new InputSource(bais));
                 final DocumentImpl doc = info.getDocument();
-                doc.getMetadata().setMimeType(mime.getName());
+                doc.setMimeType(mime.getName());
                 bais.reset();
                 collection.store(txn, broker, info, new InputSource(bais));
             }
