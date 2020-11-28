@@ -12,8 +12,6 @@ import org.exist.dom.persistent.DocumentImpl;
 import org.exist.storage.DBBroker;
 import org.exist.storage.lock.Lock;
 import org.exist.storage.txn.Txn;
-import org.exist.util.MimeTable;
-import org.exist.util.MimeType;
 import org.exist.xmldb.XmldbURI;
 import org.xml.sax.InputSource;
 
@@ -82,12 +80,7 @@ public class ExampleTrigger extends SAXTrigger implements DocumentTrigger, Colle
 
 
         final byte[] data = "<a>dummy data</a>".getBytes();
-        XmldbURI newDocumentURI = XmldbURI.create(document.getFileURI().toString() + "-copied.xml");
-
-        MimeType mime = MimeTable.getInstance().getContentTypeFor(newDocumentURI);
-        if (mime == null) {
-            mime = MimeType.BINARY_TYPE;
-        }
+        final XmldbURI newDocumentURI = XmldbURI.create(document.getFileURI().toString() + "-copied.xml");
 
 
         try (final Collection collection = broker.openCollection(document.getCollection().getURI(), Lock.LockMode.WRITE_LOCK)) {
@@ -96,7 +89,7 @@ public class ExampleTrigger extends SAXTrigger implements DocumentTrigger, Colle
             try (final InputStream bais = new ByteArrayInputStream(data);) {
                 final IndexInfo info = collection.validateXMLResource(txn, broker, newDocumentURI, new InputSource(bais));
                 final DocumentImpl doc = info.getDocument();
-                doc.setMimeType(mime.getName());
+                doc.setMimeType("application/xml");
                 bais.reset();
                 collection.store(txn, broker, info, new InputSource(bais));
             }
