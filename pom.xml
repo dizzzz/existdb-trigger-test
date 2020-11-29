@@ -13,7 +13,7 @@
 
     <groupId>org.exist.repo</groupId>
     <artifactId>triggertest</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
     <name>Trigger Test</name>
     <description>Trigger Test for eXist-db</description>
